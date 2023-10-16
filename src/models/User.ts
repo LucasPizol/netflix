@@ -89,9 +89,9 @@ User.prototype.checkPassword = function (
 ) {
   bcrypt.compare(password, this.password, (err, isSame) => {
     if (err) {
-      callbackfn(err);
+      callbackfn(err);  
     } else {
-      callbackfn(err, true);
+      callbackfn(err, isSame);
     }
   });
 };
