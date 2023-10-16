@@ -1,0 +1,60 @@
+@import "../../../../styles/colors.module.scss";
+
+.ctaSection {
+  background-color: $lightGreen;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 0px;
+  gap: 30px;
+  color:black;
+}
+.imgCta {
+    width: 20px
+}
+.nav{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.imgLogoNav {
+  width: 180px;
+}
+
+.navBtn{
+  margin: 0px 5px;
+  border-color: transparent;
+  color: $lightGrey;
+  border-width: 2px;
+
+  &:hover{
+    border-color: $lightGreen;
+    color:white;
+    background-color: transparent;
+  }
+}
+@media(max-width: 446px) {
+  .nav {
+    justify-content: center;
+  }
+  .navBtn {
+    margin: 16px 10px;
+    border-color: #fff;
+    font-size: 14px;
+  }
+  .ctaSection {
+    gap: 10px;
+  }
+}
+
+@media(max-width: 350px) {
+  .ctaSection{
+    text-align: center;
+  }
+
+  .imgCta{
+    margin: 0 8px;
+  }
+}
