@@ -15,7 +15,7 @@ const SlideCard = ({ course }: props) => {
           className={styles.slideImg}
         />
         <p className={styles.slideTitle}>{course.name}</p>
-        <p className={styles.slidedescription}>{course.synopsis}</p>
+        <p className={styles.slideDescription}>{course.synopsis}</p>
       </div>
     </>
   );
