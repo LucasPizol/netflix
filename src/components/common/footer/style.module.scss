@@ -23,14 +23,14 @@
 }
 
 @media (max-width: 575px) {
-    .footer {
-        padding: 26px 16px;
-    }
+  .footer {
+    padding: 26px 16px;
+  }
 }
 
-@media(max-width: 405px) {
-    .footer{
-        flex-direction: column;
-        justify-content: center;
-    }
+@media (max-width: 405px) {
+  .footer {
+    flex-direction: column;
+    justify-content: center;
+  }
 }

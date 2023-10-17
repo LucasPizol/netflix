@@ -1,13 +1,12 @@
-import React, { useState } from "react";
-import styles from "../styles/registerLogin.module.scss";
 import Head from "next/head";
+import { useRouter } from "next/router";
+import React, { useState, FormEvent } from "react";
+import Footer from "@/src/components/common/footer";
+import authService from "@/src/services/authService";
+import styles from "../styles/registerLogin.module.scss";
+import ToastComponent from "@/src/components/common/toast";
 import HeaderGeneric from "@/src/components/common/headerGeneric";
 import { Container, Form, FormGroup, Label, Input, Button } from "reactstrap";
-import Footer from "@/src/components/common/footer";
-import { FormEvent } from "react";
-import authService from "@/src/services/authService";
-import { useRouter } from "next/router";
-import ToastComponent from "@/src/components/common/toast";
 
 const Register = () => {
   const router = useRouter();
@@ -37,9 +36,9 @@ const Register = () => {
       return;
     }
 
-    const res = await authService.register(params);
+    const { data, status } = await authService.register(params);
 
-    if (res.status === 201) {
+    if (status === 201) {
       router.push("/login?registred=true");
       return;
     }
@@ -50,7 +49,9 @@ const Register = () => {
       setToastIsOpen(false);
     }, 1000 * 3);
 
-    setToastMessage(res);
+    console.log(data)
+
+    setToastMessage(data.message);
   };
 
   return (
@@ -58,11 +59,6 @@ const Register = () => {
       <Head>
         <title>LucasFlix - Registro</title>
         <link rel="shortcut icon" href="/favicon.svg" type="image/x-icon" />
-        <meta property="og:title" content="LucasFlix" key="title" />
-        <meta
-          name="description"
-          content="Tenha acesso aos melhores conteúdos de programação."
-        />
         <script src="https://jsuites.net/v4/jsuites.js"></script>
       </Head>
       <main className={styles.main}>
