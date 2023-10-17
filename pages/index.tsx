@@ -46,16 +46,14 @@ const HomeNoAuth = ({ course }: IndexPageProps) => {
           <CardSection />
         </div>
 
-
         <div data-aos="fade-up" data-aos-duration="1350">
-        <SlideSection
-          newestCourses={course}
-          data-aos="fade-up"
-          data-aos-duration="1350"
-        />
-
+          <SlideSection
+            newestCourses={course}
+            data-aos="fade-up"
+            data-aos-duration="1350"
+          />
         </div>
-        
+
         <Footer />
       </main>
     </>

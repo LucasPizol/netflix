@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
-import React, { useState, FormEvent } from "react";
+import React, { useState, FormEvent, useEffect } from "react";
 import Footer from "@/src/components/common/footer";
 import authService from "@/src/services/authService";
 import styles from "../styles/registerLogin.module.scss";
@@ -12,6 +12,12 @@ const Register = () => {
   const router = useRouter();
   const [toastIsOpen, setToastIsOpen] = useState<boolean>(false);
   const [toastMessage, setToastMessage] = useState<string>("");
+
+  useEffect(() => {
+    if (sessionStorage.getItem("lucasflix-token")) {
+      router.push("/home");
+    }
+  });
 
   const handleRegister = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -49,7 +55,7 @@ const Register = () => {
       setToastIsOpen(false);
     }, 1000 * 3);
 
-    console.log(data)
+    console.log(data);
 
     setToastMessage(data.message);
   };

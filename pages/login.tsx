@@ -15,6 +15,12 @@ const Login = () => {
   const [toastColor, setToastColor] = useState<string>("");
 
   useEffect(() => {
+    if (sessionStorage.getItem("lucasflix-token")) {
+      router.push("/home");
+    }
+  });
+
+  useEffect(() => {
     const registerSuccess = router.query.registered;
 
     if (registerSuccess === "true") {
