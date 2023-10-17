@@ -22,5 +22,7 @@ main {
   background: #151515;
 }
 ::-webkit-scrollbar-thumb {
-  background: #151515;
+  background: #c2c2c2;
+  border-radius: 15px;
+  z-index: -1;
 }
