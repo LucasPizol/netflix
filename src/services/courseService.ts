@@ -18,14 +18,14 @@ export type CourseType = {
 };
 
 abstract class courseService {
-  async getNewestCourses() {
+  static async getNewestCourses() {
     const res = await api.get("/courses/newest").catch((error) => {
       console.log(error.response.data.message);
 
       return error.response;
     });
 
-    return res
+    return res;
   }
 }
 

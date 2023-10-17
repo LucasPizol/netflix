@@ -1,15 +1,24 @@
 import styles from "./styles.module.scss";
+import { CourseType } from "@/src/services/courseService";
 
-const StylesCard = () => {
+interface props {
+  course: CourseType;
+}
+
+const SlideCard = ({ course }: props) => {
   return (
     <>
       <div className={styles.slide}>
-        <img src="" alt="" className={styles.slideImg} />
-        <p className={styles.slideTitle}></p>
-        <p className={styles.slidedescription}></p>
+        <img
+          src={`${process.env.NEXT_PUBLIC_BASEURL}/${course.thumbnailUrl}`}
+          alt={course.name}
+          className={styles.slideImg}
+        />
+        <p className={styles.slideTitle}>{course.name}</p>
+        <p className={styles.slidedescription}>{course.synopsis}</p>
       </div>
     </>
   );
 };
 
-export default StylesCard;
+export default SlideCard;
