@@ -51,11 +51,9 @@
     color: $lightGrey;
   }
 }
-
 .userProfileDiv {
   position: relative;
 }
-
 .modal {
   position: absolute;
   width: 150px;
@@ -71,12 +69,10 @@
   overflow: hidden;
   transition: 0.3s ease-in-out;
 }
-
 .modalShowed {
   @extend .modal;
   height: 85px;
 }
-
 .overlayModal {
   position: absolute;
   width: 100%;
