@@ -81,7 +81,6 @@
   top: 0;
   background-color: transparent;
 }
-
 .modalLink {
   color: white;
   margin: 5px;
@@ -93,13 +92,22 @@
   font-weight: bold;
   cursor: pointer;
   border-radius: 5px;
+  transition: 0.2s;
 
   &:hover {
     background-color: $darkGreen;
   }
 }
+.modalLinkLeave {
+  @extend .modalLink;
+  color: #f66;
+  &:hover {
+    background-color: #f66;
+    color:#fff
+  }
+}
 
-@media(max-width: 767px) {
+@media (max-width: 767px) {
   .nav {
     flex-direction: column;
     gap: 25px;

@@ -16,10 +16,12 @@
   border-radius: 0;
   padding: 14px;
   border: 1px solid $darkGrey;
-  &:hover {
+  &:hover,
+  &:focus {
     background-color: transparent;
     color: $lightGreen;
     border-color: $lightGreen;
+    box-shadow: none;
   }
 }
 .form {

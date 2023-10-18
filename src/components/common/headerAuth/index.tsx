@@ -22,7 +22,7 @@ const HeaderAuth = () => {
     sessionStorage.clear();
     router.push("/");
   };
-  
+
   useEffect(() => {
     profileService.fetchCurrent().then((user: UserParams) => {
       const firstNameInit = user.firstName.slice(0, 1);
@@ -64,7 +64,7 @@ const HeaderAuth = () => {
               <Link href="/profile" style={{ textDecoration: "none" }}>
                 <p className={styles.modalLink}>Meus Dados</p>
               </Link>
-              <p className={styles.modalLink} onClick={handleLogout}>
+              <p className={styles.modalLinkLeave} onClick={handleLogout}>
                 Sair
               </p>
             </div>
