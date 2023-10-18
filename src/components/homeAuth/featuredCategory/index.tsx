@@ -1,6 +1,5 @@
 import styles from "../../../../styles/slideCategory.module.scss";
 import useSWR from "swr";
-import React from "react";
 import courseService from "@/src/services/courseService";
 import SlideComponent from "../../common/slideComponent";
 import { Container } from "reactstrap";

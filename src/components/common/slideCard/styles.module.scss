@@ -2,17 +2,18 @@
 
 .slide {
   width: 280px;
-  height: 308px;
+  height: 100%;
   cursor: pointer;
-  border: 1px solid $lightGrey;
+  border: 2px solid $lightGrey;
   transition: 0.4s;
-  overflow: hidden;
-  text-overflow: clip;
   margin-left: 11px;
+  border-radius: 5px;
+  overflow: hidden;
 
+  max-height: 350px;
+  
   &:hover {
-    border: 1px solid $lightGreen;
-    height: 340px;
+    border: 2px solid $lightGreen;
   }
 }
 
@@ -31,6 +32,7 @@
   font-size: 14px;
   font-weight: bold;
   padding: 8px 16px;
+
 }
 
 @media (max-width: 300px) {
