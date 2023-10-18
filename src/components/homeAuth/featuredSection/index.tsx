@@ -21,11 +21,10 @@ const FeaturedSection = () => {
               backgroundImage: `linear-gradient(to bottom, #0000009a,  #151515 90%), url(${process.env.NEXT_PUBLIC_BASEURL}/${course.thumbnailUrl})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
-              height: "93vh"
+              height: "93vh",
             }}
             key={course.id}
           >
-            {" "}
             <HeaderAuth />
             <Container className="pt-4">
               <p className={styles.title}>{course.name}</p>

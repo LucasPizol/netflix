@@ -3,6 +3,7 @@ import useSWR from "swr";
 import React from "react";
 import courseService from "@/src/services/courseService";
 import SlideComponent from "../../common/slideComponent";
+import { Container } from "reactstrap";
 
 const NewestCategory = () => {
   const { data, error } = useSWR("/newest", courseService.getNewestCourses);
@@ -11,10 +12,10 @@ const NewestCategory = () => {
   if (!data) return <p>Loading...</p>;
 
   return (
-    <>
+    <Container>
       <p className={styles.titleCategory}>LANÇAMENTOS</p>
       <SlideComponent course={data.data} />
-    </>
+    </Container>
   );
 };
 
