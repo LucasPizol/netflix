@@ -5,6 +5,7 @@ import styles from "../../../../styles/slideCategory.module.scss";
 import useSWR from "swr";
 import SlideComponent from "../../common/slideComponent";
 import { Container } from "reactstrap";
+import PageSpinner from "../../common/spinner";
 
 interface props {
   categoryId: number;
@@ -17,7 +18,7 @@ const ListCategoriesSlide = ({ categoryId, categoryName }: props) => {
   );
 
   if (error) return error;
-  if (!data) return <p>Loading...</p>;
+  if (!data) return <PageSpinner/>;
 
   return (
     <Container>

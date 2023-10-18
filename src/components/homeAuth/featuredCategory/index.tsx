@@ -3,6 +3,7 @@ import useSWR from "swr";
 import courseService from "@/src/services/courseService";
 import SlideComponent from "../../common/slideComponent";
 import { Container } from "reactstrap";
+import PageSpinner from "../../common/spinner";
 
 const FeaturedCategory = () => {
   const { data, error } = useSWR(
@@ -11,7 +12,7 @@ const FeaturedCategory = () => {
   );
 
   if (error) return error;
-  if (!data) return <p>Loading...</p>;
+  if (!data) return <PageSpinner/>;
 
   return (
     <Container>
