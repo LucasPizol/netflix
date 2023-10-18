@@ -35,7 +35,7 @@
 .input {
   background-color: transparent;
   color: #fff;
-  border-color: $darkGrey;
+  border-color: $lightGrey;
   transition: 0.4s;
   &:focus {
     background-color: transparent;
@@ -48,7 +48,7 @@
   }
   &::placeholder {
     transition: 0.4s;
-    color: $darkGrey;
+    color: $lightGrey;
   }
 }
 
@@ -59,7 +59,6 @@
 .modal {
   position: absolute;
   width: 150px;
-  height: 80px;
   right: 0;
   margin-top: 5px;
   background-color: #303030;
@@ -68,14 +67,14 @@
   box-shadow: 8px 6px 4px rgba(0, 0, 0, 0.486);
   z-index: 1;
   margin-right: 15px;
-  height:0;
+  height: 0;
   overflow: hidden;
   transition: 0.3s ease-in-out;
 }
 
 .modalShowed {
   @extend .modal;
-  height:100px;
+  height: 85px;
 }
 
 .overlayModal {
@@ -90,6 +89,10 @@
 .modalLink {
   color: white;
   margin: 5px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+
   padding: 3px;
   font-weight: bold;
   cursor: pointer;
@@ -97,5 +100,12 @@
 
   &:hover {
     background-color: $darkGreen;
+  }
+}
+
+@media(max-width: 767px) {
+  .nav {
+    flex-direction: column;
+    gap: 25px;
   }
 }
