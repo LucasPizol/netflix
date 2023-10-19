@@ -37,7 +37,7 @@ const courseService = {
     return res;
   },
 
-  addToFav: async (courseId: number | string) => {
+  favorite: async (courseId: number | string) => {
     const token = sessionStorage.getItem("lucasflix-token");
     const res = await api
       .post(
@@ -52,12 +52,11 @@ const courseService = {
     return res;
   },
 
-  removeFav: async (courseId: number | string) => {
+  unfavorite: async (courseId: number | string) => {
     const token = sessionStorage.getItem("lucasflix-token");
     const res = await api
-      .delete("/favorites", {
+      .delete(`/favorites/${courseId}`, {
         headers: { Authorization: `Bearer ${token}` },
-        data: { courseId },
       })
       .catch((err) => {
         return err.response;
