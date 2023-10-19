@@ -1,37 +1,37 @@
 @import "../../../../styles/colors.module.scss";
 
 .header {
-    background-color: black;
+  background-color: black;
 }
 
-.headerContainer{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    padding: 20px 0px;
-    gap: 16px;
+.headerContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 20px 0px;
+  gap: 16px;
 }
 
 .headerLogo {
-    width: 180px;
-    cursor: pointer;
+  width: 180px;
+  cursor: pointer;
 }
 
 .headerBtn:hover {
-    border-color: $lightGreen;
-    background-color: transparent;
-    color: $lightGreen;
+  border-color: $lightGreen;
+  background-color: transparent;
+  color: $lightGreen;
 }
 
-@media(max-width: 575px) {
-    .headerContainer {
-        padding: 20px 16px;
-    }
+@media (max-width: 575px) {
+  .headerContainer {
+    padding: 20px 16px;
+  }
 }
 
-@media(max-width: 380px) {
-    .headerContainer {
-        justify-content: center;
-    }
+@media (max-width: 390px) {
+  .headerContainer {
+    justify-content: center;
+  }
 }
