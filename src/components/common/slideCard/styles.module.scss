@@ -9,9 +9,8 @@
   margin-left: 11px;
   border-radius: 5px;
   overflow: hidden;
+  height: 350px;
 
-  max-height: 350px;
-  
   &:hover {
     border: 2px solid $lightGreen;
   }
@@ -32,7 +31,6 @@
   font-size: 14px;
   font-weight: bold;
   padding: 8px 16px;
-
 }
 
 @media (max-width: 300px) {

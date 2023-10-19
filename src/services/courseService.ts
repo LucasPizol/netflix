@@ -29,9 +29,7 @@ const courseService = {
     const token = sessionStorage.getItem("lucasflix-token");
     const res = await api
       .get("/courses/featured", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
+        headers: { Authorization: `Bearer ${token}` },
       })
       .catch((err) => {
         return err.response;
@@ -45,11 +43,7 @@ const courseService = {
       .post(
         "/favorites",
         { courseId },
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
+        { headers: { Authorization: `Bearer ${token}` } }
       )
       .catch((err) => {
         return err.response;
@@ -62,9 +56,7 @@ const courseService = {
     const token = sessionStorage.getItem("lucasflix-token");
     const res = await api
       .delete("/favorites", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
+        headers: { Authorization: `Bearer ${token}` },
         data: { courseId },
       })
       .catch((err) => {
@@ -77,10 +69,36 @@ const courseService = {
   getFavCourses: async () => {
     const token = sessionStorage.getItem("lucasflix-token");
     const res = await api
-      .get("/favorites", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
+      .get("/favorites", { headers: { Authorization: `Bearer ${token}` } })
+      .catch((err) => {
+        return err.response;
+      });
+
+    return res;
+  },
+
+  like: async (courseId: number | string) => {
+    const token = sessionStorage.getItem("lucasflix-token");
+    const res = await api
+      .post(
+        `/likes`,
+        { courseId },
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      )
+      .catch((err) => {
+        return err.response;
+      });
+
+    return res;
+  },
+
+  unlike: async (courseId: number | string) => {
+    const token = sessionStorage.getItem("lucasflix-token");
+    const res = await api
+      .delete(`/likes/${courseId}`, {
+        headers: { Authorization: `Bearer ${token}` },
       })
       .catch((err) => {
         return err.response;
@@ -93,10 +111,19 @@ const courseService = {
     const token = sessionStorage.getItem("lucasflix-token");
     const res = await api
       .get(`/courses/search?name=${name}`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
+        headers: { Authorization: `Bearer ${token}` },
       })
+      .catch((err) => {
+        return err.response;
+      });
+
+    return res;
+  },
+
+  getEpisodes: async (id: number | string) => {
+    const token = sessionStorage.getItem("lucasflix-token");
+    const res = await api
+      .get(`/courses/${id}`, { headers: { Authorization: `Bearer ${token}` } })
       .catch((err) => {
         return err.response;
       });

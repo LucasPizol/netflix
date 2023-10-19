@@ -46,7 +46,7 @@ const HeaderAuth = () => {
   }, []);
 
   return (
-    <div style={{ backgroundColor: "#000" }}>
+    <div>
       <Container className={styles.nav}>
         <Link href={"/home"}>
           <img
