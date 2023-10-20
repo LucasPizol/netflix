@@ -15,9 +15,18 @@ const CoursePage = () => {
   const [course, setCourse] = useState<CourseType>();
   const [liked, setLiked] = useState<boolean>(false);
   const [favorite, setFavorite] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(true);
 
   const router = useRouter();
   const { id } = router.query;
+
+  useEffect(() => {
+    if (!sessionStorage.getItem("lucasflix-token")) {
+      router.push("/login");
+    } else {
+      setLoading(false);
+    }
+  }, []);
 
   const getCourse = async () => {
     if (typeof id !== "string") return;
@@ -33,6 +42,8 @@ const CoursePage = () => {
   useEffect(() => {
     getCourse();
   }, [id]);
+
+  if (loading) return <PageSpinner />;
 
   const handleLikeCourse = async () => {
     if (typeof id !== "string") return;

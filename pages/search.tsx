@@ -8,11 +8,13 @@ import { Container } from "reactstrap";
 import SlideCard from "@/src/components/common/slideCard";
 import Link from "next/link";
 import Footer from "@/src/components/common/footer";
+import PageSpinner from "@/src/components/common/spinner";
 
 const search = () => {
   const router = useRouter();
   const searchName = router.query.name;
   const [searchResult, setSearchResult] = useState<CourseType[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
 
   const searchCourses = async () => {
     if (typeof searchName === "string") {
@@ -25,6 +27,16 @@ const search = () => {
   useEffect(() => {
     searchCourses();
   }, [searchName]);
+
+  useEffect(() => {
+    if (!sessionStorage.getItem("lucasflix-token")) {
+      router.push("/login");
+    } else {
+      setLoading(false);
+    }
+  }, []);
+
+  if (loading) return <PageSpinner />;
 
   return (
     <>

@@ -19,6 +19,15 @@ const EpisodePlayer = () => {
   const [episodesTime, setEpisodesTime] = useState<number>(0);
   const [toastIsOpen, setToastIsOpen] = useState<boolean>(false);
   const [toastMessage, setToastMessage] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(true);
+
+  useEffect(() => {
+    if (!sessionStorage.getItem("lucasflix-token")) {
+      router.push("/login");
+    } else {
+      setLoading(false);
+    }
+  }, []);
 
   const episodeOrder = Number(router.query.id?.toString() || "");
   const episodeId = Number(router.query.episodeId?.toString() || "");
@@ -32,7 +41,7 @@ const EpisodePlayer = () => {
     if (!course?.episodes) return;
 
     if (
-      Math.round(res.data.seconds) ===
+      Math.round(res?.data?.seconds) ===
       course.episodes[episodeOrder]?.secondsLong
     ) {
       if (res.data) setGetEpisodesTime(res.data.seconds);
@@ -85,7 +94,7 @@ const EpisodePlayer = () => {
     getCourse();
   }, [courseId]);
 
-  if (!course?.episodes) return <PageSpinner />;
+  if (!course?.episodes || loading) return <PageSpinner />;
 
   const handlePreviousEpisode = () => {
     router.push(

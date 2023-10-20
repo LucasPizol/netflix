@@ -1,14 +1,27 @@
 import Head from "next/head";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "../styles/profile.module.scss";
 import UserForm from "@/src/components/profile/user";
 import HeaderAuth from "@/src/components/common/headerAuth";
 import { Button, Col, Container, Row } from "reactstrap";
 import PasswordForm from "@/src/components/profile/password";
+import { useRouter } from "next/router";
+import PageSpinner from "@/src/components/common/spinner";
 
 const UserInfo = () => {
   const [form, setForm] = useState<string>("user-form");
+  const router = useRouter();
+  const [loading, setLoading] = useState<boolean>(true);
 
+  useEffect(() => {
+    if (!sessionStorage.getItem("lucasflix-token")) {
+      router.push("/login");
+    } else {
+      setLoading(false);
+    }
+  }, []);
+
+  if (loading) return <PageSpinner />;
   return (
     <>
       <Head>
