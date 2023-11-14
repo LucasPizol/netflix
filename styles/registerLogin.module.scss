@@ -1,0 +1,73 @@
+@import "./colors.module.scss";
+
+.main {
+  background-image: linear-gradient(to bottom, #151515, #000);
+  display: flex;
+  flex-direction: column;
+}
+
+.formTitle {
+  font-size: 40px;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+
+.form {
+  max-width: 600px;
+  width: 100%;
+  padding: 50px;
+  border: 1px solid $darkGrey;
+  margin: 0 auto;
+}
+.label {
+  font-size: 14px;
+  font-weight: bold;
+  padding-top: 20px;
+}
+.input {
+  border-color: $darkGrey;
+  background-color: transparent;
+  color: white;
+  width: 100%;
+  &::placeholder {
+    color: $lightGrey;
+  }
+
+  &:focus {
+    border-color: $lightGrey;
+    background-color: transparent;
+    color: white;
+    box-shadow: none;
+  }
+}
+
+.inputName {
+  @extend .input;
+  text-transform: uppercase;
+  &::placeholder {
+    text-transform: none;
+  }
+}
+
+.formBtn {
+  display: block;
+  margin: 50px auto 0 auto;
+  border-color: white;
+  color: #fff;
+
+  &:hover {
+    background-color: transparent;
+    color: $lightGreen;
+    border-color: $lightGreen;
+  }
+}
+
+@media (max-width: 540px) {
+  .form {
+    padding: 50px 10px;
+  }
+  .formTitle {
+    font-size: 24px;
+    text-align: center;
+  }
+}

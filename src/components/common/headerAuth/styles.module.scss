@@ -1,0 +1,115 @@
+@import "../../../../styles/colors.module.scss";
+.imgLogoNav {
+  width: 160px;
+  cursor: pointer;
+}
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 14px;
+}
+.searchImg {
+  width: 26px;
+  margin: 0 10px;
+  cursor: pointer;
+}
+.userProfile {
+  font-weight: bold;
+  font-size: 24px;
+  background-color: #fff;
+  color: black;
+  text-transform: uppercase;
+  min-width: 45px;
+  min-height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+  margin: 0 14px;
+  line-height: 0;
+  position: relative;
+}
+.input {
+  background-color: transparent;
+  color: #fff;
+  border-color: $lightGrey;
+  transition: 0.4s;
+  &:focus {
+    background-color: transparent;
+    border-color: $lightGrey;
+    color: #fff;
+    box-shadow: none;
+    &::placeholder {
+      color: $lightGrey;
+    }
+  }
+  &::placeholder {
+    transition: 0.4s;
+    color: $lightGrey;
+  }
+}
+.userProfileDiv {
+  position: relative;
+}
+.modal {
+  position: absolute;
+  width: 150px;
+  right: 0;
+  margin-top: 5px;
+  background-color: #303030;
+  outline: none;
+  border-radius: 5px;
+  box-shadow: 8px 6px 4px rgba(0, 0, 0, 0.486);
+  z-index: 1;
+  margin-right: 15px;
+  height: 0;
+  overflow: hidden;
+  transition: 0.3s ease-in-out;
+}
+.modalShowed {
+  @extend .modal;
+  height: 85px;
+}
+.overlayModal {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  right: 1;
+  top: 0;
+  background-color: transparent;
+}
+.modalLink {
+  color: white;
+  margin: 5px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+
+  padding: 3px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: 0.2s;
+
+  &:hover {
+    background-color: $darkGreen;
+  }
+}
+.modalLinkLeave {
+  @extend .modalLink;
+  color: #f66;
+  &:hover {
+    background-color: #f66;
+    color:#fff
+  }
+}
+
+@media (max-width: 767px) {
+  .nav {
+    flex-direction: column;
+    gap: 25px;
+  }
+}
